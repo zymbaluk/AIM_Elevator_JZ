@@ -25,23 +25,14 @@ for(int i = 0; i < ElevatorCount; i++){
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+app.UseSwagger();
+app.UseSwaggerUI();
+
 
 
 // return a string representation of the elevator's current state
 app.MapGet("/", () => {
-    StringBuilder sb = new();
-    sb.Append($"Elevator Count: {ElevatorCount}\nFloor Count: {FloorCount}\n\n");
-
-    foreach(var elevator in elevators.Values){
-        sb.AppendLine(elevator.ToString());
-    }
-    return Results.Ok(sb.ToString());
+    return Results.Ok(new { ElevatorCount, FloorCount, Elevators = elevators.Values});
 });
 
 // return a string representation of the elevator's current state without moving the elevator
