@@ -28,6 +28,23 @@
 
         public void AddStop(int floor)
         {
+            if(floor > MaxFloor || floor < 0)
+            {
+                throw new IndexOutOfRangeException($"Invalid floor request: {floor} - must be between 0 and {MaxFloor}");
+            }
+
+            if(floor > CurrentFloor && Direction == Direction.AtRest)
+            {
+                Direction = Direction.Up;
+            }
+            if(floor < CurrentFloor && Direction == Direction.AtRest)
+            {
+                Direction = Direction.Down;
+            }
+            if(floor == CurrentFloor)
+            {
+                return;
+            }
             FloorRequests.Add(floor);
         }
 
