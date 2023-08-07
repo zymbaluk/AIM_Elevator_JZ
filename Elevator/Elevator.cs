@@ -87,7 +87,7 @@
             if(Direction == Direction.Down)
             {
                 var nextFloor = FloorRequests.GetViewBetween(int.MinValue, CurrentFloor).Max;
-                if(nextFloor == default)
+                if(nextFloor == default && !FloorRequests.Contains(0))
                 {
                     // sortedset.Min returns default (which is 0) if the set is empty, but we know it's not empty because we 
                     // checked above so we can return whatever we get here
