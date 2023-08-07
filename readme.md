@@ -11,6 +11,10 @@ This is a simple elevator control system that can be used to control a set of el
 * run `dotnet build` from project root to build the project
 * run `dotnet run --project .\Elevator\Elevator.csproj` from project root to run the project
 
+---or---
+
+* run `buildAndRun.bat` or `buildAndRun.sh` or `buildAndRun.ps1` from project root to build and run the project
+
 http://localhost:8080 will be the default url for the project
 
 swagger documentation is enabled and can be found at http://localhost:8080/swagger/index.html, the swagger UI includes a test client that can be used to test the API
